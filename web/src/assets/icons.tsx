@@ -8,6 +8,7 @@ export const exitButton: React.FC = ({ ...props }) => {
       viewBox="0 0 41 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <path
         d="M40.0337 20C40.0337 31.0457 31.0794 40 20.0337 40C8.988 40 0.0336914 31.0457 0.0336914 20C0.0336914 8.9543 8.988 0 20.0337 0C31.0794 0 40.0337 8.9543 40.0337 20Z"
@@ -75,6 +76,7 @@ export const plusSvg: React.FC = ({ ...props }) => {
       viewBox="0 0 40 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <path
         d="M40.0005 20C40.0005 31.0457 31.0462 40 20.0005 40C8.95479 40 0.000488281 31.0457 0.000488281 20C0.000488281 8.9543 8.95479 0 20.0005 0C31.0462 0 40.0005 8.9543 40.0005 20Z"
@@ -152,6 +154,7 @@ export const ControllerSvg: React.FC = ({ ...props }) => {
       viewBox="0 0 59 38"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <path
         fill-rule="evenodd"

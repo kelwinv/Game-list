@@ -6,7 +6,7 @@ import { Container, ControllerIcon, PlusIcon } from "./styles";
 const Header: React.FC = () => {
   return (
     <Container>
-      <Link to="/">
+      <Link to="/"> 
         <p> Ver lista </p>
         <ControllerIcon />
       </Link>
