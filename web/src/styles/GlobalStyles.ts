@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
   }
 
-  *, input, button{
+  *, input, button, textarea{
     border: none;
     color: var(--ice);
     font-family: 'Roboto', sans-serif;

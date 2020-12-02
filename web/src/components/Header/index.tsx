@@ -10,7 +10,7 @@ const Header: React.FC = () => {
         <p> Ver lista </p>
         <ControllerIcon />
       </Link>
-      <Link to="/addGame">
+      <Link to="/add-game">
         <p>adicionar jogo</p>
         <PlusIcon />
       </Link>
