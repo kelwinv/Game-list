@@ -1,9 +1,15 @@
-import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from "typeorm";
 
-import Images from './Image'
+import Image from "./Image";
 
-@Entity('games')
-export default class Games {
+@Entity("games")
+export default class Game {
   @PrimaryGeneratedColumn("uuid")
   id: number;
 
@@ -19,9 +25,8 @@ export default class Games {
   @Column()
   updated_at: Date;
 
-  @OneToMany(() => Images, image => image.game,{
-    cascade: ['insert', 'update']
+  @OneToOne((type) => Image, (image) => image.game, {
+    cascade: ["insert", "update"],
   })
-  @JoinColumn({ name: 'game_id'})
-  images: Images[];
+  image: Image;
 }

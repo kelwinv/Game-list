@@ -62,6 +62,11 @@ export const Button = styled.button`
   top: 5px;
   right: 5px;
   background: none;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
 
   @media (min-width: 900px) {
     height: 35px;

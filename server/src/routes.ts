@@ -11,6 +11,8 @@ const upload = multer(multerConfig);
 
 routes.get("/games", GamesController.index);
 
-routes.post("/games", upload.array("images"), GamesController.create);
+routes.post("/games", upload.single("image"), GamesController.create);
+
+routes.delete("/games/:id", GamesController.destroy);
 
 export default routes;

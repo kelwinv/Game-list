@@ -9,7 +9,7 @@ export default {
       about: game.about,
       created_at: game.created_at,
       updated_at: game.updated_at,
-      images: ImagesViews.render(game.images[0]),
+      image: ImagesViews.render(game.image),
     };
   },
   renderMany(game: Games[]) {

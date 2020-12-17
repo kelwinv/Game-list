@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { getRepository } from "typeorm";
 import Game from "../models/Game";
+import Image from "../models/Image";
 import GamesView from "../views/games_view";
 
 export default {
@@ -8,7 +9,7 @@ export default {
     const repository = getRepository(Game);
 
     const games = await repository.find({
-      relations: ["images"],
+      relations: ["image"],
     });
 
     return res.json(GamesView.renderMany(games));
@@ -18,27 +19,45 @@ export default {
     try {
       const { name, about } = req.body;
 
-      const reqImages = req.files as Express.Multer.File[];
+      const reqImage = req.file as Express.Multer.File;
 
-      const images = reqImages.map((image) => {
-        return { path: image.filename };
-      });
+      if (!reqImage || !name || !about) {
+        return res.json({
+          err: "um dos elementos não preenchidos",
+          image: reqImage,
+        });
+      }
+
+      const image = { path: reqImage.filename };
 
       const data = {
         name,
         about,
-        images,
+        image,
       };
 
-      const repository = getRepository(Game);
+      const GameRepo = getRepository(Game);
 
-      const game = repository.create(data);
+      const game = GameRepo.create(data);
 
-      await repository.save(game);
+      console.log(game);
+
+      await GameRepo.save(game);
 
       return res.status(201).json(game);
     } catch (err) {
+      console.log(err);
       return res.json(err.message);
     }
+  },
+
+  async destroy(req: Request, res: Response) {
+    const { id } = req.params;
+
+    const repository = getRepository(Game);
+
+    const response = await repository.delete(id);
+
+    return res.json(response);
   },
 };

@@ -121,4 +121,10 @@ export const Button = styled.button`
   font-size: 1.7rem;
   font-weight: bold;
   color: var(--create-card-purple);
+
+  cursor: pointer;
+
+  &:hover{
+    opacity: 0.9;
+  }
 `;

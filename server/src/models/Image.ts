@@ -2,7 +2,7 @@ import {
   Column,
   Entity,
   JoinColumn,
-  ManyToOne,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
 
@@ -16,7 +16,7 @@ export default class Image {
   @Column()
   path: string;
 
-  @ManyToOne(() => Game, (game) => game.images)
+  @OneToOne((type) => Game, (game) => game.image)
   @JoinColumn({ name: "game_id" })
   game: Game;
 }
